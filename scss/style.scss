@@ -1,0 +1,3015 @@
+$xl: 1920px; // PC
+$l: 1440px; // PC-M
+$m: 1280px; // PC-S
+$tab-xl: 1366px; // タブレット-xl
+$tab-l: 1112px; // タブレット-l
+$tab-m: 1024px; // タブレット-m
+$tab-s: 768px; // タブレット-s
+$sp-xl: 414px; // スマホ
+$sp-l: 375px; // スマホ
+$sp-m: 320px; // スマホ
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+// etc
+$demibold: 600;
+$extrabold: 800;
+$font: 16px;
+$text-main: #256643;
+$general: #996580;
+$home: #a67d65;
+$enshrine: #65997d;
+$info: #e8efec;
+$sub: #f7f9f8;
+
+@mixin xl {
+  @media (max-width: ($xl)) {
+    @content;
+  }
+}
+@mixin l {
+  @media (max-width: ($l)) {
+    @content;
+  }
+}
+@mixin m {
+  @media (max-width: ($m)) {
+    @content;
+  }
+}
+@mixin tab-xl {
+  @media (max-width: ($tab-xl)) {
+    @content;
+  }
+}
+@mixin tab-l {
+  @media (max-width: ($tab-l)) {
+    @content;
+  }
+}
+@mixin tab-m {
+  @media (max-width: ($tab-m)) {
+    @content;
+  }
+}
+@mixin tab-s {
+  @media (max-width: ($tab-s)) {
+    @content;
+  }
+}
+@mixin sp-xl {
+  @media (max-width: ($sp-xl)) {
+    @content;
+  }
+}
+@mixin sp-l {
+  @media (max-width: ($sp-l)) {
+    @content;
+  }
+}
+@mixin sp-m {
+  @media (max-width: ($sp-m)) {
+    @content;
+  }
+}
+
+// 行間のmixin
+@mixin linehieght($fontsize, $lin) {
+  //$fontsizeの数値の単位はpx
+  line-height: $lin / $fontsize;
+  font-size: #{$fontsize / 10}rem;
+}
+//　利用するとき
+// hoge {
+//   @include fontsize(16, 24);
+// }
+
+// トラッキングのmixin
+@mixin letterspace($tracking) {
+  letter-spacing: ($tracking / 1000) + em;
+}
+// 利用するとき
+// hoge {
+//   @include tracking(16);
+//  }
+
+// グローバル設定
+html {
+  font-size: 62.5%; /* mixin用。フォントサイズを1em=10pxにリセット */
+}
+body {
+  font-family: YuMincho, "Yu Mincho", serif;
+}
+
+img {
+  width: 100%;
+}
+
+.m0 {
+  margin: 0 !important;
+}
+
+// PC 設定
+@include xl {
+  body {
+    font-weight: $demibold;
+  }
+  .container {
+    width: 71.88%;
+    margin: 0 auto;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .grid-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-2-item {
+    width: 50%;
+  }
+  .grid-3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-3-item {
+    width: 32%;
+  }
+  .info {
+    background: $info;
+    padding: 30px 0;
+    small {
+      font-size: 2.4rem;
+    }
+    div.infoHead {
+      font-size: 3.6rem;
+      text-align: center;
+      margin: 0 0 50px 0;
+      color: $text-main;
+    }
+    .grid-2 {
+      margin: 60px 0 0 0;
+    }
+    .grid-2-item {
+      width: 49%;
+      margin-right: 1%;
+    }
+  }
+  .ir {
+    padding-right: 50px;
+    p {
+      font-size: 2rem;
+    }
+    div {
+      margin: 0 0 20px 0;
+    }
+    .mb {
+      margin: 0 0 10px 0;
+    }
+    img {
+      max-width: 305px;
+      display: block;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    span.fpoint {
+      background: #fffdf5;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.6rem;
+    }
+    .link {
+      background: #ffffff;
+      color: #333;
+      border: solid 1px #256643;
+      border-radius: 5px;
+      padding: 20px;
+      display: block;
+      text-align: center;
+      width: 230px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-size: 1.6rem;
+    }
+  }
+  .map {
+    padding-left: 50px;
+  }
+  main {
+    flex: 1;
+    max-width: 86.98%;
+  }
+  aside {
+    flex: 1;
+    max-width: 13.02%;
+  }
+  footer {
+    flex: 100%;
+    background: #256643;
+    color: #ffffff;
+    padding: 20px;
+    .footerWrap {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer_nav {
+      width: 25%;
+      flex-direction: column;
+      .lead {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.6rem;
+      }
+    }
+    .footer_nav p::after {
+      content: "";
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+    .footer a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+
+  /*ドロワー ナビゲーション*/
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    width: 500px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+    .inner {
+      padding: 25px;
+    }
+    .inner ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .inner ul li {
+      position: relative;
+      margin: 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .inner ul li a {
+      display: block;
+      color: #333;
+      font-size: 1.4rem;
+      padding: 1em;
+      text-decoration: none;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      font-size: 1.8rem;
+    }
+    .inner ul li a:hover {
+      background: #f5f7f6;
+    }
+  }
+  .open nav {
+    right: 0;
+    opacity: 1;
+  }
+  /*ドロワー トグルボタン*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+    span {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #333;
+      border-radius: 4px;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+    span:nth-child(1) {
+      top: 4px;
+    }
+    span:nth-child(2) {
+      top: 14px;
+    }
+    span:nth-child(3) {
+      bottom: 4px;
+    }
+  }
+  .open .toggle_btn span {
+    background-color: #333;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*ドロワー ドロップダウン*/
+  .menu_list .nav_item {
+    position: relative;
+  }
+  .nav_item span {
+    margin-left: 10px;
+  }
+  .menu_list .nav_item .panel {
+    overflow: hidden;
+    width: 100%;
+    display: none;
+  }
+  .menu_list .nav_item .panel .panel_item {
+    border: none;
+  }
+  .menu_list .nav_item {
+    display: block;
+  }
+  /*ドロワー マスク*/
+  #mask {
+    display: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  // サイドバーフッター
+  .sideFooter {
+    position: fixed;
+    right: 0;
+    bottom: 45px;
+    z-index: 1;
+    background: #256643;
+    width: 13.02%;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 28px;
+    color: #ffffff;
+    @include linehieght(16, 28);
+    @include letterspace(200);
+    p {
+      font-size: 1.6rem;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      font-size: 2rem;
+    }
+
+    a::after {
+      position: sticky;
+      bottom: -8px;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #eeeeee;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    a:hover::after {
+      color: #eeeeee;
+      bottom: -4px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// プランページ
+#plan {
+  @include xl {
+    display: flex;
+    flex-wrap: wrap;
+    .bgSub {
+      background: $sub;
+      padding: 0 0 50px 0;
+    }
+    .planHead {
+      width: 100%;
+      height: 595px;
+      background: url(../img/plan_musthead_bg.jpg) no-repeat;
+      background-size: 100%;
+      position: relative;
+    }
+    .planHead h1 {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      font-size: 6rem;
+      text-shadow: 3px 3px 20px rgba(253, 255, 253, 1);
+      margin: 0;
+    }
+    .contentHead {
+      @include letterspace(180);
+      @include linehieght(24, 48);
+      font-family: "游明朝", "YuMincho", serif;
+      margin: 120px 0 60px 0;
+      text-align: center;
+    }
+    .callOption {
+      margin: 100px 0;
+      img {
+        box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.1);
+      }
+    }
+    .call {
+      flex: auto;
+      p {
+        font-size: 2rem;
+      }
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      p {
+        position: fixed;
+        img {
+          max-width: 100% !important;
+        }
+      }
+      .logomark {
+        top: 23%;
+      }
+    }
+    .infoLogo::before {
+      display: inline;
+      content: "";
+      background-image: url(../img/logo.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      width: 100px;
+      padding-right: 30px;
+      margin-right: 10px;
+    }
+    .planDetails {
+      .note {
+        font-size: 1.6rem !important;
+        text-align: left !important;
+      }
+      div.card {
+        position: relative;
+      }
+      div.general {
+        img {
+          margin: 30px 0;
+        }
+        h2 {
+          font-size: 4.8rem;
+          text-align: center;
+          margin: 120px 0 50px 0;
+          color: $general;
+          font-weight: $extrabold;
+        }
+        p {
+          font-size: 2rem;
+          text-align: center;
+
+          @include letterspace(180);
+          @include linehieght(20, 40);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.6rem;
+        }
+        h3 {
+          font-size: 2.4rem;
+
+          @include letterspace(180);
+          @include linehieght(24, 30);
+          color: $general;
+        }
+        div.cardGeneralDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 70%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 2.4rem;
+            span {
+              font-size: 3.6rem;
+              color: $general;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.8rem;
+            span {
+              color: $general;
+            }
+          }
+        }
+      }
+      div.home {
+        img {
+          margin: 30px 0;
+        }
+        h2 {
+          font-size: 4.8rem;
+          text-align: center;
+          margin: 120px 0 50px 0;
+          color: $home;
+          font-weight: $extrabold;
+        }
+        p {
+          font-size: 2rem;
+          text-align: center;
+
+          @include letterspace(180);
+          @include linehieght(20, 40);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.6rem;
+        }
+        h3 {
+          font-size: 2.4rem;
+
+          @include letterspace(180);
+          @include linehieght(24, 30);
+          color: $home;
+        }
+        div.cardHomeDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 70%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 2.4rem;
+            span {
+              font-size: 3.6rem;
+              color: $home;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.8rem;
+            span {
+              color: $home;
+            }
+          }
+        }
+      }
+      div.enshrine {
+        div.bgEnshrine {
+          background: #dfe6da;
+          padding: 40px;
+          div.card {
+            position: relative;
+            margin: 0 50px;
+          }
+        }
+        h2 {
+          font-size: 4.8rem;
+          text-align: center;
+          margin: 120px 0 50px 0;
+          color: $enshrine;
+          font-weight: $extrabold;
+        }
+        p {
+          font-size: 2rem;
+          text-align: center;
+
+          @include letterspace(180);
+          @include linehieght(20, 40);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.6rem;
+        }
+        h3 {
+          font-size: 2.4rem;
+
+          @include letterspace(180);
+          @include linehieght(24, 30);
+          color: $enshrine;
+        }
+        div.cardEnshrineDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 70%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 2.4rem;
+            span {
+              font-size: 3.6rem;
+              color: $enshrine;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.8rem;
+            span {
+              color: $enshrine;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////////
+// 1440px 設定
+///////////////////////
+@include l {
+  body {
+    font-weight: $demibold;
+  }
+  .container {
+    width: 71.88%;
+    margin: 0 auto;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .grid-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-2-item {
+    width: 50%;
+  }
+  .grid-3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-3-item {
+    width: 32%;
+  }
+  .info {
+    background: $info;
+    padding: 30px 0;
+    small {
+      font-size: 1.92rem;
+    }
+    div.infoHead {
+      font-size: 2.88rem;
+      text-align: center;
+      margin: 0 0 50px 0;
+      color: $text-main;
+    }
+    .grid-2 {
+      margin: 60px 0 0 0;
+    }
+    .grid-2-item {
+      width: 49%;
+      margin-right: 1%;
+    }
+  }
+  .ir {
+    padding-right: 50px;
+    p {
+      font-size: 1.6rem;
+    }
+    div {
+      margin: 0 0 20px 0;
+    }
+    .mb {
+      margin: 0 0 10px 0;
+    }
+    img {
+      max-width: 305px;
+      display: block;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    span.fpoint {
+      background: #fffdf5;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.28rem;
+    }
+    .link {
+      background: #ffffff;
+      color: #333;
+      border: solid 1px #256643;
+      border-radius: 5px;
+      padding: 20px;
+      display: block;
+      text-align: center;
+      width: 185px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-size: 1.28rem;
+    }
+  }
+  .map {
+    padding-left: 50px;
+  }
+  main {
+    flex: 1;
+    max-width: 86.98%;
+  }
+  aside {
+    flex: 1;
+    max-width: 13.02%;
+  }
+  footer {
+    flex: 100%;
+    background: #256643;
+    color: #ffffff;
+    padding: 20px;
+    .footerWrap {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer_nav {
+      width: 25%;
+      flex-direction: column;
+      .lead {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 1.28rem;
+      }
+    }
+    .footer_nav p::after {
+      content: "";
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+    .footer a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+
+  /*ドロワー ナビゲーション*/
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    width: 500px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+    .inner {
+      padding: 25px;
+    }
+    .inner ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .inner ul li {
+      position: relative;
+      margin: 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .inner ul li a {
+      display: block;
+      color: #333;
+      font-size: 1.4rem;
+      padding: 1em;
+      text-decoration: none;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      font-size: 1.44rem;
+    }
+    .inner ul li a:hover {
+      background: #f5f7f6;
+    }
+  }
+  .open nav {
+    right: 0;
+    opacity: 1;
+  }
+  /*ドロワー トグルボタン*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+    span {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #333;
+      border-radius: 4px;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+    span:nth-child(1) {
+      top: 4px;
+    }
+    span:nth-child(2) {
+      top: 14px;
+    }
+    span:nth-child(3) {
+      bottom: 4px;
+    }
+  }
+  .open .toggle_btn span {
+    background-color: #333;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*ドロワー ドロップダウン*/
+  .menu_list .nav_item {
+    position: relative;
+  }
+  .nav_item span {
+    margin-left: 10px;
+  }
+  .menu_list .nav_item .panel {
+    overflow: hidden;
+    width: 100%;
+    display: none;
+  }
+  .menu_list .nav_item .panel .panel_item {
+    border: none;
+  }
+  .menu_list .nav_item {
+    display: block;
+  }
+  /*ドロワー マスク*/
+  #mask {
+    display: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  // サイドバーフッター
+  .sideFooter {
+    position: fixed;
+    right: 0;
+    bottom: 45px;
+    z-index: 1;
+    background: #256643;
+    width: 13.02%;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 28px;
+    color: #ffffff;
+    @include linehieght(16, 28);
+    @include letterspace(200);
+    p {
+      font-size: 1.28rem;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      font-size: 1.6rem;
+    }
+
+    a::after {
+      position: sticky;
+      bottom: -8px;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #eeeeee;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    a:hover::after {
+      color: #eeeeee;
+      bottom: -4px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// プランページ
+#plan {
+  @include l {
+    display: flex;
+    flex-wrap: wrap;
+    .bgSub {
+      background: $sub;
+      padding: 0 0 50px 0;
+    }
+    .planHead {
+      width: 100%;
+      height: 446px;
+      background: url(../img/plan_musthead_bg.jpg) no-repeat;
+      background-size: 100%;
+      position: relative;
+    }
+    .planHead h1 {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      font-size: 4.8rem;
+      text-shadow: 3px 3px 20px rgba(253, 255, 253, 1);
+      margin: 0;
+    }
+    .contentHead {
+      @include letterspace(180);
+      @include linehieght(19, 38);
+      font-family: "游明朝", "YuMincho", serif;
+      margin: 96px 0 48px 0;
+      text-align: center;
+    }
+    .callOption {
+      margin: 100px 0;
+      img {
+        box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.1);
+      }
+    }
+    .call {
+      flex: auto;
+      p {
+        font-size: 2rem;
+      }
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      p {
+        position: fixed;
+        text-align: center;
+        img {
+          max-width: 80% !important;
+        }
+      }
+      .logomark {
+        top: 30%;
+      }
+    }
+    .infoLogo::before {
+      display: inline;
+      content: "";
+      background-image: url(../img/logo.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      width: 100px;
+      padding-right: 30px;
+      margin-right: 10px;
+    }
+    .planDetails {
+      .note {
+        font-size: 1.6rem !important;
+        text-align: left !important;
+      }
+      div.card {
+        position: relative;
+      }
+      div.general {
+        img {
+          margin: 24px 0;
+        }
+        h2 {
+          font-size: 3.84rem;
+          text-align: center;
+          margin: 96px 0 40px 0;
+          color: $general;
+          font-weight: $extrabold;
+        }
+        p {
+          font-size: 1.6rem;
+          text-align: center;
+          @include letterspace(180);
+          @include linehieght(16, 32);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.28rem;
+        }
+        h3 {
+          @include letterspace(180);
+          @include linehieght(19.2, 24);
+          color: $general;
+        }
+        div.cardGeneralDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.92rem;
+            span {
+              font-size: 2.88rem;
+              color: $general;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.44rem;
+            span {
+              color: $general;
+            }
+          }
+        }
+      }
+      div.home {
+        img {
+          margin: 30px 0;
+        }
+        h2 {
+          font-size: 3.84rem;
+          text-align: center;
+          margin: 120px 0 50px 0;
+          color: $home;
+          font-weight: $extrabold;
+        }
+        p {
+          font-size: 1.6rem;
+          text-align: center;
+          @include letterspace(180);
+          @include linehieght(16, 32);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.28rem;
+        }
+        h3 {
+          @include letterspace(180);
+          @include linehieght(19.2, 24);
+          color: $home;
+        }
+        div.cardHomeDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.92rem;
+            span {
+              font-size: 2.88rem;
+              color: $home;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.44rem;
+            span {
+              color: $home;
+            }
+          }
+        }
+      }
+      div.enshrine {
+        div.bgEnshrine {
+          background: #dfe6da;
+          padding: 40px;
+          div.card {
+            position: relative;
+            margin: 0 50px;
+          }
+        }
+        h2 {
+          font-size: 3.84rem;
+          text-align: center;
+          margin: 120px 0 50px 0;
+          color: $enshrine;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(180);
+          @include linehieght(16, 32);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.28rem;
+        }
+        h3 {
+          @include letterspace(180);
+          @include linehieght(19.2, 24);
+          color: $enshrine;
+        }
+        div.cardEnshrineDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 70%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.92rem;
+            span {
+              font-size: 2.88rem;
+              color: $enshrine;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.44rem;
+            span {
+              color: $enshrine;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////////
+// 1280px 設定
+///////////////////////
+@include m {
+  body {
+    font-weight: $demibold;
+  }
+  .container {
+    width: 71.88%;
+    margin: 0 auto;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .grid-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-2-item {
+    width: 50%;
+  }
+  .grid-3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-3-item {
+    width: 32%;
+  }
+  .info {
+    background: $info;
+    padding: 30px 0;
+    small {
+      font-size: 1.92rem;
+    }
+    div.infoHead {
+      font-size: 2.304rem;
+      text-align: center;
+      margin: 0 0 50px 0;
+      color: $text-main;
+    }
+    .grid-2 {
+      margin: 60px 0 0 0;
+    }
+    .grid-2-item {
+      width: 49%;
+      margin-right: 1%;
+    }
+  }
+  .ir {
+    padding-right: 50px;
+    p {
+      font-size: 1.28rem;
+    }
+    div {
+      margin: 0 0 20px 0;
+    }
+    .mb {
+      margin: 0 0 10px 0;
+    }
+    img {
+      max-width: 305px;
+      display: block;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    span.fpoint {
+      background: #fffdf5;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.024rem;
+    }
+    .link {
+      background: #ffffff;
+      color: #333;
+      border: solid 1px #256643;
+      border-radius: 5px;
+      padding: 20px;
+      display: block;
+      text-align: center;
+      width: 152px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-size: 1.024rem;
+    }
+  }
+  .map {
+    padding-left: 50px;
+  }
+  main {
+    flex: 1;
+    max-width: 86.98%;
+  }
+  aside {
+    flex: 1;
+    max-width: 13.02%;
+  }
+  footer {
+    flex: 100%;
+    background: #256643;
+    color: #ffffff;
+    padding: 20px;
+    .footerWrap {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer_nav {
+      width: 25%;
+      flex-direction: column;
+      .lead {
+        font-size: 1.28rem;
+      }
+      p {
+        font-size: 1.024rem;
+      }
+    }
+    .footer_nav p::after {
+      content: "";
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+    .footer a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+
+  /*ドロワー ナビゲーション*/
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    width: 500px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+    .inner {
+      padding: 25px;
+    }
+    .inner ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .inner ul li {
+      position: relative;
+      margin: 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .inner ul li a {
+      display: block;
+      color: #333;
+      font-size: 1.4rem;
+      padding: 1em;
+      text-decoration: none;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      font-size: 1.44rem;
+    }
+    .inner ul li a:hover {
+      background: #f5f7f6;
+    }
+  }
+  .open nav {
+    right: 0;
+    opacity: 1;
+  }
+  /*ドロワー トグルボタン*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+    span {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #333;
+      border-radius: 4px;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+    span:nth-child(1) {
+      top: 4px;
+    }
+    span:nth-child(2) {
+      top: 14px;
+    }
+    span:nth-child(3) {
+      bottom: 4px;
+    }
+  }
+  .open .toggle_btn span {
+    background-color: #333;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*ドロワー ドロップダウン*/
+  .menu_list .nav_item {
+    position: relative;
+  }
+  .nav_item span {
+    margin-left: 10px;
+  }
+  .menu_list .nav_item .panel {
+    overflow: hidden;
+    width: 100%;
+    display: none;
+  }
+  .menu_list .nav_item .panel .panel_item {
+    border: none;
+  }
+  .menu_list .nav_item {
+    display: block;
+  }
+  /*ドロワー マスク*/
+  #mask {
+    display: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  // サイドバーフッター
+  .sideFooter {
+    position: fixed;
+    right: 0;
+    bottom: 45px;
+    z-index: 1;
+    background: #256643;
+    width: 13.02%;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 28px;
+    color: #ffffff;
+    @include linehieght(16, 28);
+    @include letterspace(200);
+    p {
+      font-size: 1.28rem;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      font-size: 1.6rem;
+    }
+
+    a::after {
+      position: sticky;
+      bottom: -8px;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #eeeeee;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    a:hover::after {
+      color: #eeeeee;
+      bottom: -4px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// プランページ
+#plan {
+  @include m {
+    display: flex;
+    flex-wrap: wrap;
+    .bgSub {
+      background: $sub;
+      padding: 0 0 50px 0;
+    }
+    .planHead {
+      width: 100%;
+      height: 396px;
+      background: url(../img/plan_musthead_bg.jpg) no-repeat;
+      background-size: 100%;
+      position: relative;
+    }
+    .planHead h1 {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      font-size: 3.84rem;
+      text-shadow: 3px 3px 20px rgba(253, 255, 253, 1);
+      margin: 0;
+    }
+    .contentHead {
+      @include letterspace(115.2);
+      @include linehieght(15.2, 30.4);
+      font-family: "游明朝", "YuMincho", serif;
+      margin: 78.4px 0 38.4px 0;
+      text-align: center;
+    }
+    .callOption {
+      margin: 100px 0;
+      img {
+        box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.1);
+      }
+    }
+    .call {
+      flex: auto;
+      p {
+        font-size: 2rem;
+      }
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      p {
+        position: fixed;
+        text-align: center;
+        img {
+          max-width: 64% !important;
+        }
+      }
+      .logomark {
+        top: 32%;
+      }
+    }
+    .infoLogo::before {
+      display: inline;
+      content: "";
+      background-image: url(../img/logo.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      width: 100px;
+      padding-right: 30px;
+      margin-right: 10px;
+    }
+    .planDetails {
+      .note {
+        font-size: 1.28rem !important;
+        text-align: left !important;
+      }
+      div.card {
+        position: relative;
+      }
+      div.general {
+        img {
+          margin: 19.2px 0;
+        }
+        h2 {
+          font-size: 3.07rem;
+          text-align: center;
+          margin: 76.8px 0 32px 0;
+          color: $general;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(115.2);
+          @include linehieght(12.8, 25.6);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.02rem;
+        }
+        h3 {
+          @include letterspace(115.2);
+          @include linehieght(15.36, 19.2);
+          color: $general;
+        }
+        div.cardGeneralDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.536rem;
+            span {
+              font-size: 2.304rem;
+              color: $general;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.152rem;
+            span {
+              color: $general;
+            }
+          }
+        }
+      }
+      div.home {
+        img {
+          margin: 30px 0;
+        }
+        h2 {
+          font-size: 3.072rem;
+          text-align: center;
+          margin: 72px 0 32px 0;
+          color: $home;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(115.2);
+          @include linehieght(12.8, 25.6);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.024rem;
+        }
+        h3 {
+          @include letterspace(115.2);
+          @include linehieght(15.36, 19.2);
+          color: $home;
+        }
+        div.cardHomeDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.536rem;
+            span {
+              font-size: 2.304rem;
+              color: $home;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.152rem;
+            span {
+              color: $home;
+            }
+          }
+        }
+      }
+      div.enshrine {
+        div.bgEnshrine {
+          background: #dfe6da;
+          padding: 40px;
+          div.card {
+            position: relative;
+            margin: 0 50px;
+          }
+        }
+        h2 {
+          font-size: 3.072rem;
+          text-align: center;
+          margin: 76.8px 0 32px 0;
+          color: $enshrine;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(115.2);
+          @include linehieght(12.8, 25.6);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.024rem;
+        }
+        h3 {
+          @include letterspace(115.2);
+          @include linehieght(15.36, 19.2);
+          color: $enshrine;
+        }
+        div.cardEnshrineDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 70%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.536rem;
+            span {
+              font-size: 2.304rem;
+              color: $enshrine;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.152rem;
+            span {
+              color: $enshrine;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////////
+// tab-xl 設定
+///////////////////////
+@include tab-xl {
+  body {
+    font-weight: $demibold;
+  }
+  .container {
+    width: 71.88%;
+    margin: 0 auto;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .grid-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-2-item {
+    width: 50%;
+  }
+  .grid-3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-3-item {
+    width: 32%;
+  }
+  .info {
+    background: $info;
+    padding: 30px 0;
+    small {
+      font-size: 1.92rem;
+    }
+    div.infoHead {
+      font-size: 2.88rem;
+      text-align: center;
+      margin: 0 0 50px 0;
+      color: $text-main;
+    }
+    .grid-2 {
+      margin: 60px 0 0 0;
+    }
+    .grid-2-item {
+      width: 49%;
+      margin-right: 1%;
+    }
+  }
+  .ir {
+    padding-right: 50px;
+    p {
+      font-size: 1.28rem;
+    }
+    div {
+      margin: 0 0 20px 0;
+    }
+    .mb {
+      margin: 0 0 10px 0;
+    }
+    img {
+      max-width: 305px;
+      display: block;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    span.fpoint {
+      background: #fffdf5;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 1.024rem;
+    }
+    .link {
+      background: #ffffff;
+      color: #333;
+      border: solid 1px #256643;
+      border-radius: 5px;
+      padding: 20px;
+      display: block;
+      text-align: center;
+      width: 152px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-size: 1.024rem;
+    }
+  }
+  .map {
+    padding-left: 50px;
+  }
+  main {
+    flex: 1;
+    max-width: 86.98%;
+  }
+  aside {
+    flex: 1;
+    max-width: 13.02%;
+  }
+  footer {
+    flex: 100%;
+    background: #256643;
+    color: #ffffff;
+    padding: 20px;
+    .footerWrap {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer_nav {
+      width: 25%;
+      flex-direction: column;
+      .lead {
+        font-size: 1.28rem;
+      }
+      p {
+        font-size: 1.024rem;
+      }
+    }
+    .footer_nav p::after {
+      content: "";
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+    .footer a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+
+  /*ドロワー ナビゲーション*/
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    width: 500px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+    .inner {
+      padding: 25px;
+    }
+    .inner ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .inner ul li {
+      position: relative;
+      margin: 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .inner ul li a {
+      display: block;
+      color: #333;
+      font-size: 1.4rem;
+      padding: 1em;
+      text-decoration: none;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      font-size: 1.44rem;
+    }
+    .inner ul li a:hover {
+      background: #f5f7f6;
+    }
+  }
+  .open nav {
+    right: 0;
+    opacity: 1;
+  }
+  /*ドロワー トグルボタン*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+    span {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #333;
+      border-radius: 4px;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+    span:nth-child(1) {
+      top: 4px;
+    }
+    span:nth-child(2) {
+      top: 14px;
+    }
+    span:nth-child(3) {
+      bottom: 4px;
+    }
+  }
+  .open .toggle_btn span {
+    background-color: #333;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*ドロワー ドロップダウン*/
+  .menu_list .nav_item {
+    position: relative;
+  }
+  .nav_item span {
+    margin-left: 10px;
+  }
+  .menu_list .nav_item .panel {
+    overflow: hidden;
+    width: 100%;
+    display: none;
+  }
+  .menu_list .nav_item .panel .panel_item {
+    border: none;
+  }
+  .menu_list .nav_item {
+    display: block;
+  }
+  /*ドロワー マスク*/
+  #mask {
+    display: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  // サイドバーフッター
+  .sideFooter {
+    position: fixed;
+    right: 0;
+    bottom: 45px;
+    z-index: 1;
+    background: #256643;
+    width: 13.02%;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 28px;
+    color: #ffffff;
+    @include linehieght(16, 28);
+    @include letterspace(200);
+    p {
+      font-size: 1.28rem;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      font-size: 1.6rem;
+    }
+
+    a::after {
+      position: sticky;
+      bottom: -8px;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #eeeeee;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    a:hover::after {
+      color: #eeeeee;
+      bottom: -4px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// プランページ
+#plan {
+  @include tab-xl {
+    display: flex;
+    flex-wrap: wrap;
+    .bgSub {
+      background: $sub;
+      padding: 0 0 50px 0;
+    }
+    .planHead {
+      width: 100%;
+      height: 396px;
+      background: url(../img/plan_musthead_bg.jpg) no-repeat;
+      background-size: 100%;
+      position: relative;
+    }
+    .planHead h1 {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      font-size: 3.84rem;
+      text-shadow: 3px 3px 20px rgba(253, 255, 253, 1);
+      margin: 0;
+    }
+    .contentHead {
+      @include letterspace(115.2);
+      @include linehieght(15.2, 30.4);
+      font-family: "游明朝", "YuMincho", serif;
+      margin: 78.4px 0 38.4px 0;
+      text-align: center;
+    }
+    .callOption {
+      margin: 100px 0;
+      img {
+        box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.1);
+      }
+    }
+    .call {
+      flex: auto;
+      p {
+        font-size: 2rem;
+      }
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      p {
+        position: fixed;
+        text-align: center;
+        img {
+          max-width: 64% !important;
+        }
+      }
+      .logomark {
+        top: 29%;
+      }
+    }
+    .infoLogo::before {
+      display: inline;
+      content: "";
+      background-image: url(../img/logo.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      width: 100px;
+      padding-right: 30px;
+      margin-right: 10px;
+    }
+    .planDetails {
+      .note {
+        font-size: 1.28rem !important;
+        text-align: left !important;
+      }
+      div.card {
+        position: relative;
+      }
+      div.general {
+        img {
+          margin: 15.36px 0;
+        }
+        h2 {
+          font-size: 3.07rem;
+          text-align: center;
+          margin: 76.8px 0 32px 0;
+          color: $general;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(115.2);
+          @include linehieght(12.8, 25.6);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.02rem;
+        }
+        h3 {
+          @include letterspace(115.2);
+          @include linehieght(15.36, 19.2);
+          color: $general;
+        }
+        div.cardGeneralDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.536rem;
+            span {
+              font-size: 2.304rem;
+              color: $general;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.152rem;
+            span {
+              color: $general;
+            }
+          }
+        }
+      }
+      div.home {
+        img {
+          margin: 30px 0;
+        }
+        h2 {
+          font-size: 3.072rem;
+          text-align: center;
+          margin: 72px 0 32px 0;
+          color: $home;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(115.2);
+          @include linehieght(12.8, 25.6);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.024rem;
+        }
+        h3 {
+          @include letterspace(115.2);
+          @include linehieght(15.36, 19.2);
+          color: $home;
+        }
+        div.cardHomeDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.536rem;
+            span {
+              font-size: 2.304rem;
+              color: $home;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.152rem;
+            span {
+              color: $home;
+            }
+          }
+        }
+      }
+      div.enshrine {
+        div.bgEnshrine {
+          background: #dfe6da;
+          padding: 40px;
+          div.card {
+            position: relative;
+            margin: 0 50px;
+          }
+        }
+        h2 {
+          font-size: 3.072rem;
+          text-align: center;
+          margin: 76.8px 0 32px 0;
+          color: $enshrine;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(115.2);
+          @include linehieght(12.8, 25.6);
+        }
+        div {
+          margin: 0 0 30px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 1.024rem;
+        }
+        h3 {
+          @include letterspace(115.2);
+          @include linehieght(15.36, 19.2);
+          color: $enshrine;
+        }
+        div.cardEnshrineDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 70%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.536rem;
+            span {
+              font-size: 2.304rem;
+              color: $enshrine;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.152rem;
+            span {
+              color: $enshrine;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+///////////////////////
+// 1112px 設定
+///////////////////////
+@include tab-l {
+  body {
+    font-weight: $demibold;
+  }
+  .container {
+    width: 71.88%;
+    margin: 0 auto;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .grid-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-2-item {
+    width: 50%;
+  }
+  .grid-3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .grid-3-item {
+    width: 32%;
+  }
+  .info {
+    background: $info;
+    padding: 30px 0;
+    small {
+      font-size: 1.536rem;
+    }
+    div.infoHead {
+      font-size: 1.8432rem;
+      text-align: center;
+      margin: 0 0 50px 0;
+      color: $text-main;
+    }
+    .grid-2 {
+      margin: 40px 0 0 0;
+    }
+    .grid-2-item {
+      width: 49%;
+      margin-right: 1%;
+    }
+  }
+  .ir {
+    padding-right: 50px;
+    p {
+      font-size: 1.024rem;
+    }
+    div {
+      margin: 0 0 20px 0;
+    }
+    .mb {
+      margin: 0 0 10px 0;
+    }
+    img {
+      max-width: 305px;
+      display: block;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    span.fpoint {
+      background: #fffdf5;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 0.8192rem;
+    }
+    .link {
+      background: #ffffff;
+      color: #333;
+      border: solid 1px #256643;
+      border-radius: 5px;
+      padding: 10px;
+      display: block;
+      text-align: center;
+      width: 121px;
+      text-decoration: none;
+      margin-right: 10px;
+      font-size: 0.8192rem;
+    }
+  }
+  .map {
+    padding-left: 50px;
+  }
+  main {
+    flex: 1;
+    max-width: 86.98%;
+  }
+  aside {
+    flex: 1;
+    max-width: 13.02%;
+  }
+  footer {
+    flex: 100%;
+    background: #256643;
+    color: #ffffff;
+    padding: 20px;
+    .footerWrap {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer_nav {
+      width: 25%;
+      flex-direction: column;
+      .lead {
+        font-size: 1.28rem;
+      }
+      p {
+        font-size: 1.024rem;
+      }
+    }
+    .footer_nav p::after {
+      content: "";
+      margin-right: 10px;
+      padding-right: 10px;
+    }
+    .footer a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+
+  /*ドロワー ナビゲーション*/
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    width: 500px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+    .inner {
+      padding: 25px;
+    }
+    .inner ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .inner ul li {
+      position: relative;
+      margin: 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .inner ul li a {
+      display: block;
+      color: #333;
+      font-size: 1.4rem;
+      padding: 1em;
+      text-decoration: none;
+      -webkit-transition-duration: 0.2s;
+      transition-duration: 0.2s;
+      font-size: 1.44rem;
+    }
+    .inner ul li a:hover {
+      background: #f5f7f6;
+    }
+  }
+  .open nav {
+    right: 0;
+    opacity: 1;
+  }
+  /*ドロワー トグルボタン*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+    span {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #333;
+      border-radius: 4px;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+    span:nth-child(1) {
+      top: 4px;
+    }
+    span:nth-child(2) {
+      top: 14px;
+    }
+    span:nth-child(3) {
+      bottom: 4px;
+    }
+  }
+  .open .toggle_btn span {
+    background-color: #333;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*ドロワー ドロップダウン*/
+  .menu_list .nav_item {
+    position: relative;
+  }
+  .nav_item span {
+    margin-left: 10px;
+  }
+  .menu_list .nav_item .panel {
+    overflow: hidden;
+    width: 100%;
+    display: none;
+  }
+  .menu_list .nav_item .panel .panel_item {
+    border: none;
+  }
+  .menu_list .nav_item {
+    display: block;
+  }
+  /*ドロワー マスク*/
+  #mask {
+    display: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  // サイドバーフッター
+  .sideFooter {
+    position: fixed;
+    right: 0;
+    bottom: 45px;
+    z-index: 1;
+    background: #256643;
+    width: 13.02%;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 28px;
+    color: #ffffff;
+    @include linehieght(16, 28);
+    @include letterspace(200);
+    p {
+      font-size: 1.28rem;
+    }
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      font-size: 1.6rem;
+    }
+
+    a::after {
+      position: sticky;
+      bottom: -8px;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #eeeeee;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    a:hover::after {
+      color: #eeeeee;
+      bottom: -4px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+// プランページ
+#plan {
+  @include tab-l {
+    display: flex;
+    flex-wrap: wrap;
+    .bgSub {
+      background: $sub;
+      padding: 0 0 50px 0;
+    }
+    .planHead {
+      width: 100%;
+      height: 316px;
+      background: url(../img/plan_musthead_bg.jpg) no-repeat;
+      background-size: 100%;
+      position: relative;
+    }
+    .planHead h1 {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      font-size: 3.074rem;
+      text-shadow: 3px 3px 20px rgba(253, 255, 253, 1);
+      margin: 0;
+    }
+    .contentHead {
+      @include letterspace(92.16);
+      @include linehieght(12.16, 24.32);
+      font-family: "游明朝", "YuMincho", serif;
+      margin: 78.4px 0 38.4px 0;
+      text-align: center;
+    }
+    .callOption {
+      margin: 100px 0;
+      img {
+        box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.1);
+      }
+    }
+    .call {
+      flex: auto;
+      p {
+        font-size: 2rem;
+      }
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      p {
+        position: fixed;
+        text-align: center;
+        img {
+          max-width: 40.96% !important;
+        }
+      }
+      .logomark {
+        top: 32%;
+      }
+    }
+    .infoLogo::before {
+      display: inline;
+      content: "";
+      background-image: url(../img/logo.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 100px;
+      width: 100px;
+      padding-right: 30px;
+      margin-right: 10px;
+    }
+    .planDetails {
+      .note {
+        margin-top: 6em;
+        font-size: 1.024rem !important;
+        text-align: left !important;
+      }
+      div.card {
+        position: relative;
+      }
+      div.general {
+        img {
+          margin: 12.48px 0;
+        }
+        h2 {
+          font-size: 2.456rem;
+          text-align: center;
+          margin: 61.44px 0 25.6px 0;
+          color: $general;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(73.728);
+          @include linehieght(8.192, 16.384);
+        }
+        div {
+          margin: 0 0 19.2px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 0.819rem;
+        }
+        h3 {
+          @include letterspace(92.16);
+          @include linehieght(12.288, 15.36);
+          color: $general;
+        }
+        div.cardGeneralDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.2288rem;
+            span {
+              font-size: 1.8432rem;
+              color: $general;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 0.9216rem;
+            span {
+              color: $general;
+            }
+          }
+        }
+      }
+      div.home {
+        img {
+          margin: 12.48px 0;
+        }
+        h2 {
+          font-size: 2.4576rem;
+          text-align: center;
+          margin: 72px 0 32px 0;
+          color: $home;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(92.16);
+          @include linehieght(10.24, 20.48);
+        }
+        div {
+          margin: 0 0 19.2px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 0.8192rem;
+        }
+        h3 {
+          @include letterspace(92.16);
+          @include linehieght(12.288, 15.36);
+          color: $home;
+        }
+        div.cardHomeDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 84%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.2288rem;
+            span {
+              font-size: 1.8432rem;
+              color: $home;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 0.9216rem;
+            span {
+              color: $home;
+            }
+          }
+        }
+      }
+      div.enshrine {
+        img {
+          margin: 12.48px 0;
+        }
+        div.bgEnshrine {
+          background: #dfe6da;
+          padding: 40px;
+          div.card {
+            position: relative;
+            margin: 0 50px;
+          }
+        }
+        h2 {
+          font-size: 2.4576rem;
+          text-align: center;
+          margin: 72px 0 32px 0;
+          color: $enshrine;
+          font-weight: $extrabold;
+        }
+        p {
+          text-align: center;
+          @include letterspace(92.16);
+          @include linehieght(10.24, 20.48);
+        }
+        div {
+          margin: 0 0 19.2px 0;
+        }
+        div p {
+          text-align: left !important;
+          font-size: 0.8192rem;
+        }
+        h3 {
+          @include letterspace(92.16);
+          @include linehieght(12.288, 15.36);
+          color: $enshrine;
+        }
+        div.cardEnshrineDescripton {
+          position: absolute;
+          z-index: 2;
+          width: 70%;
+          background: #ffffff;
+          left: 50%;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          bottom: -80px;
+          padding: 20px;
+          box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+          border-radius: 3px;
+          text-align: center;
+          div {
+            font-size: 1.2288rem;
+            span {
+              font-size: 1.8432rem;
+              color: $enshrine;
+              margin: 0 10px 0 0;
+            }
+          }
+          p {
+            font-size: 1.152rem;
+            span {
+              color: $enshrine;
+            }
+          }
+        }
+      }
+    }
+  }
+}

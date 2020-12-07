@@ -1,0 +1,241 @@
+@charset "UTF-8";
+@media (min-width: 1200px) {
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .gridItem {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (min-width: 1200px) {
+  .gridItem:nth-child(3n + 1) {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pc {
+    display: none;
+  }
+  .contentHead {
+    margin: 6.25% 0 4% 0;
+  }
+  /*ドロワー ナビゲーション*/
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    width: 500px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+  }
+  .open nav {
+    right: 0;
+    opacity: 1;
+  }
+  nav .inner {
+    padding: 25px;
+  }
+  nav .inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav .inner ul li {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+  nav .inner ul li a {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    padding: 1em;
+    text-decoration: none;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
+  nav .inner ul li a:hover {
+    background: #f5f7f6;
+  }
+  /*ドロワー トグルボタン*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .toggle_btn span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .toggle_btn span:nth-child(1) {
+    top: 4px;
+  }
+  .toggle_btn span:nth-child(2) {
+    top: 14px;
+  }
+  .toggle_btn span:nth-child(3) {
+    bottom: 4px;
+  }
+  .open .toggle_btn span {
+    background-color: #333;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*ドロワー ドロップダウン*/
+  .menu_list .nav_item {
+    position: relative;
+  }
+  .nav_item span {
+    margin-left: 10px;
+  }
+  .menu_list .nav_item .panel {
+    overflow: hidden;
+    width: 100%;
+    display: none;
+  }
+  .menu_list .nav_item .panel .panel_item {
+    border: none;
+  }
+  .menu_list .nav_item {
+    display: block;
+  }
+  /*ドロワー マスク*/
+  #mask {
+    display: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .sideFooter {
+    position: fixed;
+    right: 0;
+    bottom: 45px;
+    z-index: 1;
+    background: #256643;
+    width: 13.02%;
+    text-align: center;
+    color: #ffffff;
+  }
+  .sideFooter a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  .sideFooter a::after {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: -8px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #eeeeee;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .sideFooter a:hover::after {
+    color: #eeeeee;
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+  }
+  main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    max-width: 1670px;
+  }
+  aside {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    max-width: 250px;
+  }
+  #index {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #plan {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #plan .planHead {
+    width: 100%;
+    height: 600px;
+    background: url(../img/plan_musthead_bg.jpg) no-repeat;
+    background-size: 100%;
+  }
+  #faq {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #order {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #about {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/*# sourceMappingURL=style.css.map */
