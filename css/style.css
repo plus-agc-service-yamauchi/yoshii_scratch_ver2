@@ -1,11 +1,4 @@
 @charset "UTF-8";
-body {
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
 html {
   font-size: 62.5%;
   /* mixin用。フォントサイズを1em=10pxにリセット */
@@ -23,7 +16,11 @@ img {
   margin: 0 !important;
 }
 
-@media (max-width: 1920px) {
+.text-center {
+  text-align: center !important;
+}
+
+@media (min-width: 1920px) {
   body {
     font-weight: 600;
   }
@@ -182,6 +179,616 @@ img {
   }
   footer .footer_nav p {
     font-size: 1.6rem;
+    margin-bottom: 5px;
+  }
+  footer .footer_nav p::after {
+    content: "";
+    margin-right: 10px;
+    padding-right: 10px;
+  }
+  footer .footer a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  /*ドロワー ナビゲーション*/
+  nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    bottom: 0;
+    width: 500px;
+    background: #ffffff;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 3;
+    opacity: 0;
+  }
+  nav .inner {
+    padding: 25px;
+  }
+  nav .inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav .inner ul li {
+    position: relative;
+    margin: 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+  nav .inner ul li a {
+    display: block;
+    color: #333;
+    font-size: 1.4rem;
+    padding: 1em;
+    text-decoration: none;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    font-size: 1.8rem;
+  }
+  nav .inner ul li a:hover {
+    background: #f5f7f6;
+  }
+  .open nav {
+    right: 0;
+    opacity: 1;
+  }
+  /*ドロワー トグルボタン*/
+  .toggle_btn {
+    display: block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .toggle_btn span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .toggle_btn span:nth-child(1) {
+    top: 4px;
+  }
+  .toggle_btn span:nth-child(2) {
+    top: 14px;
+  }
+  .toggle_btn span:nth-child(3) {
+    bottom: 4px;
+  }
+  .open .toggle_btn span {
+    background-color: #333;
+  }
+  .open .toggle_btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+  }
+  .open .toggle_btn span:nth-child(2) {
+    opacity: 0;
+  }
+  .open .toggle_btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+  }
+  /*ドロワー ドロップダウン*/
+  .menu_list .nav_item {
+    position: relative;
+  }
+  .nav_item span {
+    margin-left: 10px;
+  }
+  .menu_list .nav_item .panel {
+    overflow: hidden;
+    width: 100%;
+    display: none;
+  }
+  .menu_list .nav_item .panel .panel_item {
+    border: none;
+  }
+  .menu_list .nav_item {
+    display: block;
+  }
+  /*ドロワー マスク*/
+  #mask {
+    display: none;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .open #mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    opacity: 0.8;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .sideFooter {
+    position: fixed;
+    right: 0;
+    bottom: 45px;
+    z-index: 1;
+    background: #256643;
+    width: 13.02%;
+    text-align: center;
+    padding: 20px 0;
+    line-height: 28px;
+    color: #ffffff;
+    line-height: 1.75;
+    font-size: 1.6rem;
+    letter-spacing: 0.2em;
+  }
+  .sideFooter p {
+    font-size: 1.6rem;
+  }
+  .sideFooter a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    font-size: 2rem;
+  }
+  .sideFooter a::after {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: -8px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #eeeeee;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  .sideFooter a:hover::after {
+    color: #eeeeee;
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 1920px) {
+  #plan {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  #plan .bgSub {
+    background: #f7f9f8;
+    padding: 0 0 50px 0;
+  }
+  #plan .planHead {
+    width: 100%;
+    height: 595px;
+    background: url(../img/plan_musthead_bg.jpg) no-repeat;
+    background-size: 100%;
+    position: relative;
+  }
+  #plan .planHead h1 {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    font-size: 6rem;
+    text-shadow: 3px 3px 20px #fdfffd;
+    margin: 0;
+  }
+  #plan .contentHead {
+    letter-spacing: 0.18em;
+    line-height: 2;
+    font-size: 2.4rem;
+    font-family: "游明朝", "YuMincho", serif;
+    margin: 120px 0 60px 0;
+    text-align: center;
+  }
+  #plan .callOption {
+    margin: 100px 0;
+  }
+  #plan .callOption img {
+    -webkit-box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.1);
+            box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.1);
+  }
+  #plan .call {
+    -webkit-box-flex: 1;
+    -webkit-flex: auto;
+        -ms-flex: auto;
+            flex: auto;
+  }
+  #plan .call p {
+    font-size: 2rem;
+  }
+  #plan .logo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100vh;
+  }
+  #plan .logo p {
+    position: fixed;
+  }
+  #plan .logo p img {
+    max-width: 100% !important;
+  }
+  #plan .logo .logomark {
+    top: 23%;
+  }
+  #plan .infoLogo::before {
+    display: inline;
+    content: "";
+    background-image: url(../img/logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    padding-right: 30px;
+    margin-right: 10px;
+  }
+  #plan .planDetails .note {
+    font-size: 1.6rem !important;
+    text-align: left !important;
+  }
+  #plan .planDetails div.card {
+    position: relative;
+  }
+  #plan .planDetails div.general img {
+    margin: 30px 0;
+  }
+  #plan .planDetails div.general h2 {
+    font-size: 4.8rem;
+    text-align: center;
+    margin: 120px 0 50px 0;
+    color: #996580;
+    font-weight: 800;
+  }
+  #plan .planDetails div.general p {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.18em;
+    line-height: 2;
+    font-size: 2rem;
+  }
+  #plan .planDetails div.general div {
+    margin: 0 0 30px 0;
+  }
+  #plan .planDetails div.general div p {
+    text-align: left;
+    font-size: 1.6rem;
+  }
+  #plan .planDetails div.general h3 {
+    font-size: 2.4rem;
+    letter-spacing: 0.18em;
+    line-height: 1.25;
+    font-size: 2.4rem;
+    color: #996580;
+  }
+  #plan .planDetails div.general div.cardGeneralDescripton {
+    position: absolute;
+    z-index: 2;
+    width: 70%;
+    background: #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    bottom: -80px;
+    padding: 20px;
+    -webkit-box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+            box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+    border-radius: 3px;
+    text-align: center;
+  }
+  #plan .planDetails div.general div.cardGeneralDescripton div {
+    font-size: 2.4rem;
+  }
+  #plan .planDetails div.general div.cardGeneralDescripton div span {
+    font-size: 3.6rem;
+    color: #996580;
+    margin: 0 10px 0 0;
+  }
+  #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  #plan .planDetails div.general div.cardGeneralDescripton p span {
+    color: #996580;
+  }
+  #plan .planDetails div.home img {
+    margin: 30px 0;
+  }
+  #plan .planDetails div.home h2 {
+    font-size: 4.8rem;
+    text-align: center;
+    margin: 120px 0 50px 0;
+    color: #a67d65;
+    font-weight: 800;
+  }
+  #plan .planDetails div.home p {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.18em;
+    line-height: 2;
+    font-size: 2rem;
+  }
+  #plan .planDetails div.home div {
+    margin: 0 0 30px 0;
+  }
+  #plan .planDetails div.home div p {
+    font-size: 1.6rem;
+  }
+  #plan .planDetails div.home h3 {
+    font-size: 2.4rem;
+    letter-spacing: 0.18em;
+    line-height: 1.25;
+    font-size: 2.4rem;
+    color: #a67d65;
+  }
+  #plan .planDetails div.home div.cardHomeDescripton {
+    position: absolute;
+    z-index: 2;
+    width: 70%;
+    background: #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    bottom: -80px;
+    padding: 20px;
+    -webkit-box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+            box-shadow: 1px 1px 5px rgba(202, 204, 202, 0.3);
+    border-radius: 3px;
+    text-align: center;
+  }
+  #plan .planDetails div.home div.cardHomeDescripton div {
+    font-size: 2.4rem;
+  }
+  #plan .planDetails div.home div.cardHomeDescripton div span {
+    font-size: 3.6rem;
+    color: #a67d65;
+    margin: 0 10px 0 0;
+  }
+  #plan .planDetails div.home div.cardHomeDescripton p {
+    font-size: 1.8rem;
+  }
+  #plan .planDetails div.home div.cardHomeDescripton p span {
+    color: #a67d65;
+  }
+  #plan .planDetails div.enshrine div.bgEnshrine {
+    background: #dfe6da;
+    padding: 40px;
+  }
+  #plan .planDetails div.enshrine div.bgEnshrine div.card {
+    position: relative;
+    margin: 0 50px;
+  }
+  #plan .planDetails div.enshrine h2 {
+    font-size: 4.8rem;
+    text-align: center;
+    margin: 120px 0 50px 0;
+    color: #65997d;
+    font-weight: 800;
+  }
+  #plan .planDetails div.enshrine p {
+    text-align: center;
+    letter-spacing: 0.18em;
+    line-height: 2;
+    font-size: 2rem;
+  }
+  #plan .planDetails div.enshrine div {
+    margin: 0 0 30px 0;
+  }
+  #plan .planDetails div.enshrine div p {
+    text-align: left !important;
+    font-size: 1.6rem;
+  }
+  #plan .planDetails div.enshrine h3 {
+    letter-spacing: 0.18em;
+    line-height: 1.25;
+    font-size: 2.4rem;
+    color: #65997d;
+  }
+}
+
+@media (max-width: 1920px) {
+  body {
+    font-weight: 600;
+  }
+  .container {
+    width: 71.88%;
+    margin: 0 auto;
+  }
+  .grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .grid-2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .grid-2-item {
+    width: 50%;
+  }
+  .grid-3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+  .grid-3-item {
+    width: 32%;
+  }
+  .info {
+    background: #e8efec;
+    padding: 30px 0;
+  }
+  .info small {
+    font-size: 2.4rem;
+  }
+  .info div.infoHead {
+    font-size: 3.6rem;
+    text-align: center;
+    margin: 0 0 50px 0;
+    color: #256643;
+  }
+  .info .grid-2 {
+    margin: 60px 0 0 0;
+  }
+  .info .grid-2-item {
+    width: 49%;
+    margin-right: 1%;
+  }
+  .ir {
+    padding-right: 50px;
+  }
+  .ir p {
+    font-size: 2rem;
+  }
+  .ir div {
+    margin: 0 0 20px 0;
+  }
+  .ir .mb {
+    margin: 0 0 10px 0;
+  }
+  .ir img {
+    max-width: 305px;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  .ir span.fpoint {
+    background: #fffdf5;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.6rem;
+  }
+  .ir .link {
+    background: #ffffff;
+    color: #333;
+    border: solid 1px #256643;
+    border-radius: 5px;
+    padding: 20px;
+    display: block;
+    text-align: center;
+    width: 230px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 1.6rem;
+  }
+  .map {
+    padding-left: 50px;
+  }
+  main {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 86.98%;
+  }
+  aside {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 13.02%;
+  }
+  footer {
+    -webkit-box-flex: 100%;
+    -webkit-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    background: #256643;
+    color: #ffffff;
+    padding: 20px;
+  }
+  footer .footerWrap {
+    width: 100%;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  footer .footer_nav {
+    width: 25%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .footer_nav .lead {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  footer .footer_nav p {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -483,8 +1090,7 @@ img {
     font-weight: 800;
   }
   #plan .planDetails div.general p {
-    font-size: 2rem;
-    text-align: center;
+    text-align: left;
     letter-spacing: 0.18em;
     line-height: 2;
     font-size: 2rem;
@@ -493,7 +1099,6 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
     font-size: 1.6rem;
   }
   #plan .planDetails div.general h3 {
@@ -528,6 +1133,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 1.8rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -554,7 +1160,6 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 1.6rem;
   }
   #plan .planDetails div.home h3 {
@@ -630,7 +1235,7 @@ img {
     font-size: 2.4rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -646,18 +1251,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 2.4rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 3.6rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.8rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -818,9 +1423,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.6rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.28rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -1123,7 +1730,6 @@ img {
     font-weight: 800;
   }
   #plan .planDetails div.general p {
-    font-size: 1.6rem;
     text-align: center;
     letter-spacing: 0.18em;
     line-height: 2;
@@ -1133,7 +1739,7 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
+    text-align: left;
     font-size: 1.28rem;
   }
   #plan .planDetails div.general h3 {
@@ -1167,6 +1773,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 1.44rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -1193,7 +1800,6 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 1.28rem;
   }
   #plan .planDetails div.home h3 {
@@ -1266,7 +1872,7 @@ img {
     font-size: 1.92rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -1282,18 +1888,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.92rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 2.88rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.44rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -1454,9 +2060,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.28rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.024rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -1759,7 +2367,7 @@ img {
     font-weight: 800;
   }
   #plan .planDetails div.general p {
-    text-align: center;
+    text-align: left;
     letter-spacing: 0.1152em;
     line-height: 2;
     font-size: 1.28rem;
@@ -1768,7 +2376,6 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
     font-size: 1.02rem;
   }
   #plan .planDetails div.general h3 {
@@ -1802,6 +2409,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 1.152rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -1827,7 +2435,6 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 1.024rem;
   }
   #plan .planDetails div.home h3 {
@@ -1900,7 +2507,7 @@ img {
     font-size: 1.536rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -1916,18 +2523,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.536rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 2.304rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.152rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -2088,9 +2695,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.28rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.024rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -2402,7 +3011,7 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
+    text-align: left;
     font-size: 1.02rem;
   }
   #plan .planDetails div.general h3 {
@@ -2436,6 +3045,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 1.152rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -2461,7 +3071,6 @@ img {
     margin: 0 0 30px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 1.024rem;
   }
   #plan .planDetails div.home h3 {
@@ -2534,7 +3143,7 @@ img {
     font-size: 1.536rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -2550,18 +3159,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.536rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 2.304rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.152rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -2722,9 +3331,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.28rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.024rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -3037,7 +3648,7 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
+    text-align: left;
     font-size: 0.819rem;
   }
   #plan .planDetails div.general h3 {
@@ -3071,6 +3682,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 0.9216rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -3096,7 +3708,6 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 0.8192rem;
   }
   #plan .planDetails div.home h3 {
@@ -3172,7 +3783,7 @@ img {
     font-size: 1.2288rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -3188,18 +3799,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.2288rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 1.8432rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.152rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -3360,9 +3971,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.2rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.024rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -3675,7 +4288,7 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
+    text-align: left;
     font-size: 0.819rem;
   }
   #plan .planDetails div.general h3 {
@@ -3709,6 +4322,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 0.9216rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -3734,7 +4348,6 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 0.8192rem;
   }
   #plan .planDetails div.home h3 {
@@ -3810,7 +4423,7 @@ img {
     font-size: 1.2288rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -3826,18 +4439,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.2288rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 1.8432rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.152rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -3998,9 +4611,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.2rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.024rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -4313,7 +4928,7 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
+    text-align: left;
     font-size: 0.819rem;
   }
   #plan .planDetails div.general h3 {
@@ -4347,6 +4962,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 0.9216rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -4372,7 +4988,6 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 0.8192rem;
   }
   #plan .planDetails div.home h3 {
@@ -4448,7 +5063,7 @@ img {
     font-size: 1.2288rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -4464,18 +5079,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.2288rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 1.8432rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.152rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -4632,9 +5247,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.2rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.024rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -4947,7 +5564,7 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.general div p {
-    text-align: left !important;
+    text-align: left;
     font-size: 0.819rem;
   }
   #plan .planDetails div.general h3 {
@@ -4981,6 +5598,7 @@ img {
     margin: 0 10px 0 0;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p {
+    text-align: center;
     font-size: 0.9216rem;
   }
   #plan .planDetails div.general div.cardGeneralDescripton p span {
@@ -5006,7 +5624,6 @@ img {
     margin: 0 0 19.2px 0;
   }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 0.8192rem;
   }
   #plan .planDetails div.home h3 {
@@ -5082,7 +5699,7 @@ img {
     font-size: 1.2288rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -5098,18 +5715,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.2288rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 1.8432rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.152rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }
@@ -5259,9 +5876,11 @@ img {
   }
   footer .footer_nav .lead {
     font-size: 1.2rem;
+    margin-bottom: 10px;
   }
   footer .footer_nav p {
     font-size: 1.024rem;
+    margin-bottom: 5px;
   }
   footer .footer_nav p::after {
     content: "";
@@ -5571,9 +6190,6 @@ img {
   #plan .planDetails div.card {
     position: relative;
   }
-  #plan .planDetails div.general img {
-    margin: 12.48px 0;
-  }
   #plan .planDetails div.general h2 {
     font-size: 2.456rem;
     text-align: center;
@@ -5587,11 +6203,7 @@ img {
     line-height: 2;
     font-size: 0.8192rem;
   }
-  #plan .planDetails div.general div {
-    margin: 0 0 19.2px 0;
-  }
   #plan .planDetails div.general div p {
-    text-align: left !important;
     font-size: 0.819rem;
   }
   #plan .planDetails div.general h3 {
@@ -5630,14 +6242,8 @@ img {
   #plan .planDetails div.general div.cardGeneralDescripton p span {
     color: #996580;
   }
-  #plan .planDetails div.general .card {
-    margin-bottom: 65px;
-  }
   #plan .planDetails div.home .card {
     margin-bottom: 65px;
-  }
-  #plan .planDetails div.home img {
-    margin: 12.48px 0;
   }
   #plan .planDetails div.home h2 {
     font-size: 2.4576rem;
@@ -5652,11 +6258,7 @@ img {
     line-height: 2;
     font-size: 1.024rem;
   }
-  #plan .planDetails div.home div {
-    margin: 0 0 19.2px 0;
-  }
   #plan .planDetails div.home div p {
-    text-align: left !important;
     font-size: 0.8192rem;
   }
   #plan .planDetails div.home h3 {
@@ -5695,9 +6297,6 @@ img {
   #plan .planDetails div.home div.cardHomeDescripton p span {
     color: #a67d65;
   }
-  #plan .planDetails div.enshrine img {
-    margin: 12.48px 0;
-  }
   #plan .planDetails div.enshrine div.bgEnshrine {
     background: #dfe6da;
     padding: 40px;
@@ -5719,9 +6318,6 @@ img {
     line-height: 2;
     font-size: 1.024rem;
   }
-  #plan .planDetails div.enshrine div {
-    margin: 0 0 19.2px 0;
-  }
   #plan .planDetails div.enshrine div p {
     text-align: left !important;
     font-size: 0.8192rem;
@@ -5732,7 +6328,7 @@ img {
     font-size: 1.2288rem;
     color: #65997d;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription {
     position: absolute;
     z-index: 2;
     width: 70%;
@@ -5748,18 +6344,18 @@ img {
     border-radius: 3px;
     text-align: center;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div {
     font-size: 1.2288rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton div span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription div span {
     font-size: 1.8432rem;
     color: #65997d;
     margin: 0 10px 0 0;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p {
     font-size: 1.152rem;
   }
-  #plan .planDetails div.enshrine div.cardEnshrineDescripton p span {
+  #plan .planDetails div.enshrine div.cardEnshrineDescription p span {
     color: #65997d;
   }
 }

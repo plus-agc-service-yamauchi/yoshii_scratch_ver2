@@ -1,0 +1,51 @@
+$sp: 320;
+$tab: 600px;
+$pc: 1025px;
+
+// etc
+$demibold: 600;
+$extrabold: 800;
+$font: 16px;
+$text-main: #256643;
+$general: #996580;
+$home: #a67d65;
+$enshrine: #65997d;
+$info: #e8efec;
+$sub: #f7f9f8;
+
+/* デザインA（スマートフォン） */
+body {
+  font-family: YuMincho, "Yu Mincho", serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+footer {
+  background: #256643;
+  display: fixed;
+  bottom: 0;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: space-between;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+}
+
+/* デザインB（タブレット） */
+@media screen and (min-width: $tab) {
+}
+
+/* デザインC(PC) */
+@media screen and (min-width: $pc) {
+  /* PC用レイアウト 1,025px以上の範囲に収めるデザインはこの中に記述 */
+  header {
+    display: none;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 86.98% 13.02%;
+  }
+}

@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* デザインA（スマートフォン） */
+body {
+  font-family: YuMincho, "Yu Mincho", serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+footer {
+  background: #256643;
+  display: fixed;
+  bottom: 0;
+  padding: 20px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: space-between;
+      -ms-flex-direction: space-between;
+          flex-direction: space-between;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* デザインB（タブレット） */
+/* デザインC(PC) */
+@media screen and (min-width: 1025px) {
+  /* PC用レイアウト 1,025px以上の範囲に収めるデザインはこの中に記述 */
+  header {
+    display: none;
+  }
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 86.98% 13.02%;
+        grid-template-columns: 86.98% 13.02%;
+  }
+}
+/*# sourceMappingURL=about.css.map */
